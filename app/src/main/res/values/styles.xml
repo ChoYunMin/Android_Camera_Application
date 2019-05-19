@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BottomNavigation">
+        <item name="android:background">?android:attr/windowBackground</item>
+        <item name="android:itemBackground">@drawable/selector_navbar_background</item>
+    </style>
+
 </resources>
