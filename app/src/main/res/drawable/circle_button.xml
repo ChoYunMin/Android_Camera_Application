@@ -6,7 +6,7 @@
     android:right="4dp"
     android:left="4dp">
     <shape android:shape="oval">
-        <solid android:color="#B6D5A2"/>
+        <solid android:color="@color/colorPrimary"/>
     </shape>
 </item>
 </selector>
