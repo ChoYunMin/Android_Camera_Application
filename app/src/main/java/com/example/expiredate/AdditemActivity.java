@@ -569,17 +569,17 @@ public class AdditemActivity extends AppCompatActivity {
                     URL url = new URL("http://192.168.35.86/Item_Insert.php");
                     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                     conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                    conn.setRequestMethod("GET");
-                    conn.setConnectTimeout(5000);
-                    conn.setReadTimeout(5000);
+                    conn.setRequestMethod("POST");
+                    conn.setConnectTimeout(8000);
+                    conn.setReadTimeout(8000);
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
                     conn.setUseCaches(false);
                     conn.setDefaultUseCaches(false);
 
                     //OutputStream outputStream = conn.getOutputStream();
-                    OutputStream outputStream = new BufferedOutputStream(conn.getOutputStream());
-                    outputStream.write(getData.getBytes("euc-kr"));
+                    OutputStreamWriter outputStream = new OutputStreamWriter(conn.getOutputStream());
+                    outputStream.write(getData);
                     outputStream.flush();
                     outputStream.close();
 
@@ -589,6 +589,15 @@ public class AdditemActivity extends AppCompatActivity {
                         out.close();
                         */
                     //String result = readStream(conn.getInputStream());
+
+                    int resCode = conn.getResponseCode();
+                    if(resCode == 200){
+                        // 잘 동작해야하는데... 그게 맞는데..
+                    }
+                    else{
+                        // 연결 안된 경우
+                    }
+
                     conn.disconnect();
                     //return result;
 
